@@ -1,0 +1,36 @@
+CheckMeta
+
+Login com facebook
+    Salvar informaçoes do perfil
+    Capturar informações do perfil
+
+Cadastro
+    Nome - Validação []
+        - No mínimo 3 caracteres
+    Email - Validação []
+        - Não aceita e-mail já cadastrado
+    Senha - Validação []
+        - Criptografar senha
+        - No mínimo 6 caracteres
+    Confirmação - Validação []
+        - Deve ser a mesma senha
+
+Recuperar senha
+    - Recuperar com e-mail
+
+Home
+    - Todas as metas cadastradas que correspondem o filtro selecionado
+    - Filtro de metas por ano/mes/todas
+    - Filtro de metas já atingidas
+    - Lembretes de metas com datas próximas
+    - Menu inferior
+    - ActivityBar com botao de configurações e perfil do usuário
+
+Meta
+    - Cadastrar meta
+        Nome
+        Data final
+    - Editar meta
+    - Excluir meta
+
+

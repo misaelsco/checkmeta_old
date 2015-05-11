@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">CheckMeta</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_login">Login</string>
+    <string name="facebook_app_id">868453333226038</string>
+    <string name="title_activity_cadastro">Cadastro</string>
+    <string name="title_activity_home">Lista de metas</string>
+    <string name="btnLogin">Entrar</string>
+    <string name="frase_cadastro">Cadastre-se no CheckMeta</string>
+    <string name="nome">Nome:</string>
+    <string name="email">E-mail:</string>
+    <string name="senha">Senha:</string>
+    <string name="confirmacao_senha">Confirmação de senha:</string>
+    <string name="cadastrar">Cadastrar</string>
+    <string name="success_user_register">Usuário cadastrado com sucesso!</string>
+    <string name="title_activity_meta">Meta</string>
+    <string name="name_meta">Nome da meta:</string>
+    <string name="description_meta">Descrição:</string>
+    <string name="duedate_meta">Data prevista:</string>
+    <string name="actualdate_meta">Data conquistada:</string>
+    <string name="status_meta">Status:</string>
+</resources>

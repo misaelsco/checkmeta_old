@@ -3,6 +3,7 @@ package br.com.correiam.checkmeta;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
@@ -72,8 +73,6 @@ public class MetaActivity extends ActionBarActivity {
         month = c.get(Calendar.MONTH);
         day = c.get(Calendar.DAY_OF_MONTH);
 
-        //updateStartDisplay();
-
         if(getIntent().hasExtra("metaId")){
             Bundle extras = getIntent().getExtras();
             String idMeta = extras.getString("metaId");
@@ -107,36 +106,6 @@ public class MetaActivity extends ActionBarActivity {
         }
     }
 
-    public void addListenerOnButton() {
-
-        btnDueDate = (Button) findViewById(R.id.etDueDate);
-        btnDueDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(DUEDATE);
-            }
-        });
-
-        btnActualDate = (Button) findViewById(R.id.etActualDate);
-        btnActualDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialog(ACTUALDATE);
-            }
-        });
-    }
-
-    private void updateStartDisplay() {
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(year, month, day);
-
-        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
-        String date = df.format(calendar.getTime());
-
-        btnDueDate.setText(date);
-    }
-
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int selectedYear,
                               int selectedMonth, int selectedDay) {
@@ -160,18 +129,6 @@ public class MetaActivity extends ActionBarActivity {
 
         }
     };
-/*
-    private DatePickerDialog.OnDateSetListener mDateSetListener =
-        new DatePickerDialog.OnDateSetListener() {
-
-            public void onDateSet(DatePicker view, int yearPicker,
-                                  int monthOfYear, int dayOfMonth) {
-                year = yearPicker;
-                month = monthOfYear;
-                day = dayOfMonth;
-                updateStartDisplay();
-            }
-        };*/
 
     @Override
     protected Dialog onCreateDialog(int id) {
@@ -263,9 +220,6 @@ public class MetaActivity extends ActionBarActivity {
             Long insertedId = dao.insert(meta);
             if (insertedId > -1) {
                 Toast.makeText(MetaActivity.this, "Meta cadastrada com sucesso", Toast.LENGTH_LONG).show();
-
-                Intent intent = new Intent(MetaActivity.this, Home.class);
-                MetaActivity.this.startActivity(intent);
                 this.finish();
             } else {
                 Log.d("ERROR", "Erro ao cadastrar meta");
@@ -291,7 +245,6 @@ public class MetaActivity extends ActionBarActivity {
                 if (updatedId) {
                     Toast.makeText(MetaActivity.this, "Meta editada com sucesso", Toast.LENGTH_LONG).show();
                     this.finish();
-
                 } else {
                     Toast.makeText(MetaActivity.this, "Falha ao editar meta", Toast.LENGTH_LONG).show();
                 }

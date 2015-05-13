@@ -25,7 +25,6 @@
         android:background="@drawable/shape_edittext"
         android:inputType="textEmailAddress"
         android:drawableLeft="@drawable/ic_action_user"
-        android:text="teste@teste.com"
         android:hint="E-mail"/>
 
     <EditText style="@style/tvFullParent"
@@ -33,7 +32,6 @@
         android:background="@drawable/shape_edittext"
         android:inputType="textPassword"
         android:drawableLeft="@drawable/ic_action_lock_closed"
-        android:text="testea"
         android:hint="Senha"/>
 
     <Button

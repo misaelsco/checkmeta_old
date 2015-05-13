@@ -1,5 +1,6 @@
 package br.com.correiam.checkmeta;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
@@ -96,12 +97,7 @@ public class MetaActivity extends ActionBarActivity {
             btnDueDate.setText(oldMeta.getDueDate());
             etState.setText(oldMeta.getState());
             btnActualDate.setText(oldMeta.getActualDate());
-            spState.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                }
-            });
 
             btnActualDate.setVisibility(View.VISIBLE);
             tvState.setVisibility(View.VISIBLE);
@@ -163,6 +159,11 @@ public class MetaActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_meta, menu);
+
+        if(getIntent().hasExtra("metaId")){
+            MenuItem item = menu.findItem(R.id.action_delete);
+            item.setVisible(true);
+        }
         return true;
     }
 

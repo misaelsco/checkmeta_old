@@ -72,6 +72,12 @@
         android:visibility="gone"
         android:singleLine="true"/>
 
+    <Spinner android:id="@+id/spState"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/status_meta"
+        android:visibility="gone"/>
+
     <TextView
         android:id="@+id/tvActualDate"
         android:layout_width="match_parent"

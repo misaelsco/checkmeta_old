@@ -8,13 +8,16 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.internal.widget.AdapterViewCompat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,6 +41,7 @@ public class MetaActivity extends ActionBarActivity {
     private Button btnActualDate;
     private TextView tvState;
     private TextView tvActualDate;
+    private Spinner spState;
     private AlertDialog delete_alert;
     static final int DUEDATE = 0;
     static final int ACTUALDATE = 1;
@@ -82,6 +86,7 @@ public class MetaActivity extends ActionBarActivity {
             etIdMeta = (EditText) findViewById(R.id.tvIdMetaActivity);
             tvActualDate = (TextView) findViewById(R.id.tvActualDate);
             tvState = (TextView) findViewById(R.id.tvState);
+            spState = (Spinner) findViewById(R.id.spState);
 
             //Preenchendo os campos da meta
             oldMeta = dao.select(idMeta);
@@ -91,11 +96,18 @@ public class MetaActivity extends ActionBarActivity {
             btnDueDate.setText(oldMeta.getDueDate());
             etState.setText(oldMeta.getState());
             btnActualDate.setText(oldMeta.getActualDate());
+            spState.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                }
+            });
 
             btnActualDate.setVisibility(View.VISIBLE);
             tvState.setVisibility(View.VISIBLE);
             etState.setVisibility(View.VISIBLE);
             tvActualDate.setVisibility(View.VISIBLE);
+            spState.setVisibility(View.VISIBLE);
 
             btnActualDate.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {

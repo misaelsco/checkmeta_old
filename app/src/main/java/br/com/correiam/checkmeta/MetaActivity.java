@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.internal.widget.AdapterViewCompat;
@@ -37,7 +38,6 @@ public class MetaActivity extends ActionBarActivity {
     private EditText etIdMeta;
     private EditText etName;
     private EditText etDescription;
-    private EditText etState;
     private Button btnDueDate;
     private Button btnActualDate;
     private TextView tvState;
@@ -83,7 +83,6 @@ public class MetaActivity extends ActionBarActivity {
             String idMeta = extras.getString("metaId");
 
             btnActualDate = (Button) findViewById(R.id.etActualDate);
-            etState = (EditText) findViewById(R.id.etState);
             etIdMeta = (EditText) findViewById(R.id.tvIdMetaActivity);
             tvActualDate = (TextView) findViewById(R.id.tvActualDate);
             tvState = (TextView) findViewById(R.id.tvState);
@@ -95,13 +94,12 @@ public class MetaActivity extends ActionBarActivity {
             etName.setText(oldMeta.getName());
             etDescription.setText(oldMeta.getDescription());
             btnDueDate.setText(oldMeta.getDueDate());
-            etState.setText(oldMeta.getState());
+            spState.setSelection(selectSpinner(oldMeta.getState()));
             btnActualDate.setText(oldMeta.getActualDate());
 
 
             btnActualDate.setVisibility(View.VISIBLE);
             tvState.setVisibility(View.VISIBLE);
-            etState.setVisibility(View.VISIBLE);
             tvActualDate.setVisibility(View.VISIBLE);
             spState.setVisibility(View.VISIBLE);
 
@@ -112,6 +110,19 @@ public class MetaActivity extends ActionBarActivity {
             });
 
         }
+    }
+
+    private int selectSpinner(String text){
+        if(text.equals("Pendente"))
+            return 0;
+        if(text.equals("Atrasada"))
+            return 1;
+        if(text.equals("Realizada"))
+            return 2;
+        if(text.equals("Despriorizada"))
+            return 3;
+
+        return 0;
     }
 
     private DatePickerDialog.OnDateSetListener mDateSetListener = new DatePickerDialog.OnDateSetListener() {
@@ -250,7 +261,7 @@ public class MetaActivity extends ActionBarActivity {
             meta.setDescription(etDescription.getText().toString());
             meta.setDueDate(btnDueDate.getText().toString());
             meta.setActualDate(btnActualDate.getText().toString());
-            meta.setState(etState.getText().toString());
+            meta.setState(spState.getSelectedItem().toString());
 
             //Compara se o usuário fez alterações na Meta
             if(!oldMeta.equals(meta)) {

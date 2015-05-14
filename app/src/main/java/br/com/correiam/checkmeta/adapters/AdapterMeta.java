@@ -1,6 +1,7 @@
 package br.com.correiam.checkmeta.adapters;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,6 +50,17 @@ public class AdapterMeta extends ArrayAdapter<Meta>{
 
         TextView tvDueDate = (TextView)view.findViewById(R.id.tvMetaDueDate);
         tvDueDate.setText(meta.getDueDate().toString());
+
+        TextView tvStatus = (TextView) view.findViewById(R.id.tvStatusMeta);
+        tvStatus.setText(meta.getState().toString());
+        if(meta.getState().toString().equals("Atrasada"))
+            tvStatus.setTextColor(Color.RED);
+        if(meta.getState().toString().equals("Pendente"))
+            tvStatus.setTextColor(Color.BLUE);
+        if(meta.getState().toString().equals("Realizada"))
+            tvStatus.setTextColor(Color.BLACK);
+        if(meta.getState().toString().equals("Despriorizada"))
+            tvStatus.setTextColor(Color.BLACK);
 
         return view;
 

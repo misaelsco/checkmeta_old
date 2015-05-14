@@ -46,6 +46,7 @@ public class MetasDAO {
         values.put("name", meta.getName());
         values.put("description", meta.getDescription());
         values.put("dueDate", meta.getDueDate());
+        values.put("state", meta.getState());
 
         try{
             insertedRow = db.insert(TABLE,null,values);

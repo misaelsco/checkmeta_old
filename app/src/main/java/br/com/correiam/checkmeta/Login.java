@@ -59,6 +59,12 @@ public class Login extends Activity implements View.OnClickListener {
         btnLogin = (Button) findViewById(R.id.btnLogin);
         btnLogin.setOnClickListener(this);
 
+        if(loginButton.getText().equals("Log out"))
+        {
+            Intent i = new Intent(Login.this, Home.class);
+            Login.this.startActivity(i);
+        }
+
     }
 
     private FacebookCallback<LoginResult> mCallBack = new FacebookCallback<LoginResult>() {

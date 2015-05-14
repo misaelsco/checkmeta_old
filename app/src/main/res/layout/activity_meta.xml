@@ -28,7 +28,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="textCapSentences"
-        android:singleLine="true"/>
+        android:singleLine="true"
+        android:maxLength="30"/>
 
     <TextView
         android:layout_width="match_parent"
@@ -40,9 +41,10 @@
         android:id="@+id/etDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="textCapSentences"
         android:maxLines="5"
-        android:maxLength="255"/>
+        android:maxLength="255"
+        android:inputType="textCapSentences|textMultiLine"/>
+    <!--android:inputType="textCapSentences"-->
 
     <TextView
         android:layout_width="match_parent"

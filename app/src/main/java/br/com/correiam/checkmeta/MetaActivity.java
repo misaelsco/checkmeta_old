@@ -113,6 +113,7 @@ public class MetaActivity extends ActionBarActivity {
     }
 
     private int selectSpinner(String text){
+        if(text != null){
         if(text.equals("Pendente"))
             return 0;
         if(text.equals("Atrasada"))
@@ -121,7 +122,7 @@ public class MetaActivity extends ActionBarActivity {
             return 2;
         if(text.equals("Despriorizada"))
             return 3;
-
+        }
         return 0;
     }
 
@@ -208,6 +209,7 @@ public class MetaActivity extends ActionBarActivity {
             public void onClick(DialogInterface arg0, int arg1){
                 if(dao.delete(idMeta)){
                     Toast.makeText(MetaActivity.this, "Meta excluída com sucesso", Toast.LENGTH_LONG).show();
+                    MetaActivity.this.finish();
                 }
                 else
                 {
@@ -240,6 +242,7 @@ public class MetaActivity extends ActionBarActivity {
             meta.setName(etName.getText().toString());
             meta.setDescription(etDescription.getText().toString());
             meta.setDueDate(btnDueDate.getText().toString());
+            meta.setState("Pendente");
 
             Long insertedId = dao.insert(meta);
             if (insertedId > -1) {

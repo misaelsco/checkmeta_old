@@ -28,7 +28,7 @@
         android:textSize="15sp"
         android:maxLines="3"
         android:text="teste"/>
-
+<!--
     <TextView style="@style/tvRowMeta"
         android:id="@+id/tvMetaDueDate"
         android:layout_width="match_parent"
@@ -36,6 +36,35 @@
         android:textSize="10sp"
         android:gravity="right"
         android:layout_marginBottom="3dp"
-        android:text="teste"/>
+        android:text="teste"/>-->
+
+    <RelativeLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="2dp">
+
+        <TextView style="@style/tvRowMeta"
+            android:id="@+id/tvStatusMeta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="3dp"
+            android:text="Status" />
+
+        <TextView style="@style/tvRowMeta"
+            android:id="@+id/tvMetaDueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="3dp"
+            android:text="55/55/5555"
+            android:layout_gravity="right" />
+
+
+        </RelativeLayout>
 
 </LinearLayout>
